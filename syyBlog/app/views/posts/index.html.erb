@@ -1,0 +1,20 @@
+<h1>Post on Soyoung's Wall!</h1>
+
+<% @posts.each do |post| %>
+  <h2 style="color:#40B3DF;"> <%= link_to post.title, post %></h2>
+  <p>
+    <h4> <%= truncate post.text %></h4>
+  </p>
+  <table>
+    <tr>
+      created <%= time_ago_in_words post.created_at %> ago
+    </tr>
+    <tr>
+      <td><%= link_to 'Open', post %></td>
+      <td><%= link_to 'Delete', post, :method => :delete, confirm: 'Are you sure? :S' %></td>
+    </tr>
+  </table>
+  <p> --------------------------------------------------------------- </p>
+<% end %>
+
+<br><br> <%= link_to 'New Post', new_post_path %>
